@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "744490355135",
+    "project_id": "trimanage-9c4ad",
+    "storage_bucket": "trimanage-9c4ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744490355135:android:62b27987a139205ea1b90a",
+        "android_client_info": {
+          "package_name": "com.jeet.trimanage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "744490355135-q472qrecc73ns601g3qe9mq9ugsoisj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcu3Qq4ZXg_SFtzkQWBGhZaYOXu0rWRn0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "744490355135-q472qrecc73ns601g3qe9mq9ugsoisj7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
