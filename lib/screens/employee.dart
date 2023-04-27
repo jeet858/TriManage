@@ -52,7 +52,19 @@ class Employee extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              Container(
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Colors.black,
+                      width: 1.0,
+                    ),
+                    top: BorderSide(
+                      color: Colors.black,
+                      width: 1.0,
+                    ),
+                  ),
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -63,16 +75,13 @@ class Employee extends StatelessWidget {
                           color: Colors.black38,
                           decoration: TextDecoration.none),
                     ),
-                    DottedBorder(
-                      color: Colors.black38,
-                      child: Container(
-                        padding: const EdgeInsets.all(15),
-                        child: Text(
-                          data['review'],
-                          style: kTextStyle.copyWith(
-                              color: Colors.black,
-                              decoration: TextDecoration.none),
-                        ),
+                    Container(
+                      padding: const EdgeInsets.all(15),
+                      child: Text(
+                        data['review'],
+                        style: kTextStyle.copyWith(
+                            color: Colors.black,
+                            decoration: TextDecoration.none),
                       ),
                     ),
                   ],
@@ -83,6 +92,126 @@ class Employee extends StatelessWidget {
                 style: kTextStyle.copyWith(
                     color: Colors.black38, decoration: TextDecoration.none),
               ),
+              Container(
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Colors.grey,
+                      width: 1.0,
+                    ),
+                  ),
+                ),
+                child: Image.asset(
+                  'assets/images/pie chart.jpg',
+                ),
+              ),
+              Text(
+                'Shifts:',
+                style: kTextStyle.copyWith(
+                    color: Colors.black38, decoration: TextDecoration.none),
+              ),
+              Container(
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Colors.black,
+                      width: 1.0,
+                    ),
+                  ),
+                ),
+                child: Table(
+                  children: [
+                    TableRow(
+                      children: [
+                        Text(
+                          'Monday',
+                          style: kTextStyle.copyWith(
+                              color: Colors.black,
+                              decoration: TextDecoration.none),
+                        ),
+                        Text(
+                          '9.00AM - 5.00PM',
+                          style: kTextStyle.copyWith(
+                              color: Colors.black,
+                              decoration: TextDecoration.none),
+                        ),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        Text(
+                          'Tuesday',
+                          style: kTextStyle.copyWith(
+                              color: Colors.black,
+                              decoration: TextDecoration.none),
+                        ),
+                        Text(
+                          '9.00AM - 5.00PM',
+                          style: kTextStyle.copyWith(
+                              color: Colors.black,
+                              decoration: TextDecoration.none),
+                        ),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        Text(
+                          'Wednesday',
+                          style: kTextStyle.copyWith(
+                              color: Colors.black,
+                              decoration: TextDecoration.none),
+                        ),
+                        Text(
+                          '9.00AM - 5.00PM',
+                          style: kTextStyle.copyWith(
+                              color: Colors.black,
+                              decoration: TextDecoration.none),
+                        ),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        Text(
+                          'Thursday',
+                          style: kTextStyle.copyWith(
+                              color: Colors.black,
+                              decoration: TextDecoration.none),
+                        ),
+                        Text(
+                          '9.00AM - 5.00PM',
+                          style: kTextStyle.copyWith(
+                              color: Colors.black,
+                              decoration: TextDecoration.none),
+                        ),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        Text(
+                          'Friday',
+                          style: kTextStyle.copyWith(
+                              color: Colors.black,
+                              decoration: TextDecoration.none),
+                        ),
+                        Text(
+                          '9.00AM - 5.00PM',
+                          style: kTextStyle.copyWith(
+                              color: Colors.black,
+                              decoration: TextDecoration.none),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Text(
+                'Note:',
+                style: kTextStyle.copyWith(
+                    color: Colors.black38, decoration: TextDecoration.none),
+              ),
+              const SizedBox(
+                height: 200,
+              )
             ],
           )),
     );
