@@ -33,6 +33,8 @@ class ServiceTile extends StatelessWidget {
         child: Text(
           name,
           style: kTextStyle.copyWith(color: Colors.black),
+          overflow: TextOverflow.fade,
+          maxLines: 5,
         ),
       ),
     );

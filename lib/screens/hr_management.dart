@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:manager/screens/all_applications.dart';
 import 'package:manager/screens/employee_list.dart';
+import 'package:manager/screens/faqs.dart';
+import 'package:manager/screens/recruitments.dart';
 import 'package:manager/widgets/bottom_navigationbar.dart';
 import 'package:manager/widgets/service_tile.dart';
 
@@ -9,7 +12,6 @@ class HR extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const BottomApp(),
       backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -20,9 +22,24 @@ class HR extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => EmployeeList()));
               }),
-          const ServiceTile(name: 'Recruitments', onPressed: null),
-          const ServiceTile(name: 'All Applications', onPressed: null),
-          const ServiceTile(name: 'FAQ', onPressed: null)
+          ServiceTile(
+              name: 'Recruitments',
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Recruitments()));
+              }),
+          ServiceTile(
+              name: 'All Applications',
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AllApplications()));
+              }),
+          ServiceTile(
+              name: 'FAQ',
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => FAQ()));
+              }),
         ],
       ),
     );

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:manager/screens/fleet_management.dart';
 import 'package:manager/screens/inventory_management.dart';
-import 'package:manager/widgets/bottom_navigationbar.dart';
 
 import 'hr_management.dart';
 
@@ -25,7 +23,7 @@ class Home extends StatelessWidget {
                             MaterialPageRoute(builder: (context) => HR()));
                       },
                       child: Container(
-                        width: MediaQuery.of(context).size.width * 0.42,
+                        width: MediaQuery.of(context).size.width * 0.40,
                         height: 250,
                         color: const Color.fromRGBO(248, 156, 46, 1),
                         child: Column(
@@ -71,7 +69,7 @@ class Home extends StatelessWidget {
                                 builder: (context) => Inventory()));
                       },
                       child: Container(
-                        width: MediaQuery.of(context).size.width * 0.42,
+                        width: MediaQuery.of(context).size.width * 0.40,
                         height: 250,
                         color: const Color.fromRGBO(76, 110, 71, 1),
                         child: Column(
@@ -114,9 +112,8 @@ class Home extends StatelessWidget {
                 const SizedBox(height: 20),
                 MaterialButton(
                   onPressed: () {},
-                  minWidth: MediaQuery.of(context).size.width * 0.35,
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 0.42,
+                    width: MediaQuery.of(context).size.width * 0.40,
                     height: 250,
                     color: const Color.fromRGBO(226, 74, 67, 1),
                     child: Column(

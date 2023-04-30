@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:manager/screens/employee.dart';
+import 'package:manager/widgets/edit_employee.dart';
 
 class EmployeeTile extends StatelessWidget {
   // final String name;
@@ -90,9 +91,15 @@ class EmployeeTile extends StatelessWidget {
                       color: Colors.red,
                     ),
                   ),
-                  const IconButton(
-                    onPressed: null,
-                    icon: Icon(
+                  IconButton(
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return EditEmployee(data: data);
+                          });
+                    },
+                    icon: const Icon(
                       Icons.edit,
                       color: Colors.blueAccent,
                     ),

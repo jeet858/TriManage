@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:manager/constants/text_decoration.dart';
 
@@ -16,15 +15,20 @@ class Employee extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              Column(
                 children: [
-                  CircleAvatar(
-                    backgroundImage: NetworkImage(data['image']),
-                    radius: 70,
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage(data['image']),
+                      radius: 100,
+                    ),
                   ),
                   Container(
+                    alignment: Alignment.topRight,
                     height: 100,
-                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,19 +37,25 @@ class Employee extends StatelessWidget {
                           'Employee Id: ${data['id']}',
                           style: kTextStyle.copyWith(
                               color: Colors.black38,
-                              decoration: TextDecoration.none),
+                              decoration: TextDecoration.none,
+                              fontSize: 15),
+                          maxLines: 3,
                         ),
                         Text(
                           'Name: ${data['name']}',
                           style: kTextStyle.copyWith(
                               color: Colors.black38,
-                              decoration: TextDecoration.none),
+                              decoration: TextDecoration.none,
+                              fontSize: 15),
+                          maxLines: 3,
                         ),
                         Text(
                           'Position: ${data['position']}',
                           style: kTextStyle.copyWith(
                               color: Colors.black38,
-                              decoration: TextDecoration.none),
+                              decoration: TextDecoration.none,
+                              fontSize: 15),
+                          maxLines: 3,
                         ),
                       ],
                     ),
@@ -53,6 +63,7 @@ class Employee extends StatelessWidget {
                 ],
               ),
               Container(
+                width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
