@@ -71,35 +71,77 @@ class _RecruitmentsState extends State<Recruitments> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: StreamBuilder(
-          stream: getPdfUrls().asStream(),
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              return Text('Error: ${snapshot.error}');
-            }
-            switch (snapshot.connectionState) {
-              case ConnectionState.waiting:
-                return SizedBox(
-                  height: MediaQuery.of(context).size.height,
-                  child: const Center(
-                    child: CircularProgressIndicator(),
+        child: Column(children: [
+          Container(
+            height: 200,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(30)),
+              color: Color.fromRGBO(58, 18, 45, 1),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(15),
+                  margin: const EdgeInsets.only(bottom: 20, right: 20, top: 10),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.white, width: 2),
                   ),
-                );
-              default:
-                final pdfUrls = snapshot.data!;
-                return ListView(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  children: pdfUrls.map((element) {
-                    return RecruitmentFiles(
-                        link: element['link'], name: element['name']);
-                  }).toList(),
-                );
-            }
-          },
-        ),
+                  child: const Icon(
+                    Icons.fact_check_outlined,
+                    size: 40,
+                    color: Colors.white,
+                  ),
+                ),
+                const Text(
+                  'Recruitments',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.fade,
+                  maxLines: 5,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+          StreamBuilder(
+            stream: getPdfUrls().asStream(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Text('Error: ${snapshot.error}');
+              }
+              switch (snapshot.connectionState) {
+                case ConnectionState.waiting:
+                  return SizedBox(
+                    height: MediaQuery.of(context).size.height,
+                    child: const Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                default:
+                  final pdfUrls = snapshot.data!;
+                  return ListView(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    children: pdfUrls.map((element) {
+                      return RecruitmentFiles(
+                          link: element['link'], name: element['name']);
+                    }).toList(),
+                  );
+              }
+            },
+          ),
+        ]),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromRGBO(58, 18, 45, 1),
         onPressed: () async {
           await openFileManagerAndSelectFile();
         },

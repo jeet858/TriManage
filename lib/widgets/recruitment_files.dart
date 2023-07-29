@@ -26,9 +26,13 @@ class RecruitmentFiles extends StatelessWidget {
         margin: EdgeInsets.only(
           top: MediaQuery.of(context).size.width * 0.05,
         ),
-        decoration: const BoxDecoration(
-          color: Color(0xFFf6f6f6),
-          boxShadow: [
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(
+            color: const Color.fromRGBO(58, 18, 45, 1),
+          ),
+          boxShadow: const [
             BoxShadow(
               blurRadius: 3,
               spreadRadius: 1,

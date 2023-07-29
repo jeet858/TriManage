@@ -18,22 +18,10 @@ class EditEmployee extends StatelessWidget {
 
   final pinController = TextEditingController();
 
-  final idController = TextEditingController();
-
   final _fireStore = FirebaseFirestore.instance;
-
-  Future<DocumentSnapshot<Object?>> editEmployee() async {
-    CollectionReference collectionReference =
-        _fireStore.collection('employees');
-    QuerySnapshot querySnapshot =
-        await collectionReference.where('id', isEqualTo: data['id']).get();
-    List<DocumentSnapshot> docs = querySnapshot.docs;
-    return docs.first;
-  }
 
   @override
   Widget build(BuildContext context) {
-    idController.text = data['id'];
     firstNameController.text = data['name'].toString().split(" ")[0];
     lastNameController.text = data['name'].toString().split(" ")[1];
     emailController.text = data['email'];
@@ -48,10 +36,6 @@ class EditEmployee extends StatelessWidget {
           children: [
             const Text('Add Employee'),
             const SizedBox(height: 15),
-            TextField(
-              controller: idController,
-              decoration: const InputDecoration(hintText: 'Employee id'),
-            ),
             TextField(
               controller: firstNameController,
               decoration: const InputDecoration(hintText: 'First Name'),
@@ -97,10 +81,7 @@ class EditEmployee extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () async {
-                var ref = await editEmployee();
-                var docRef = ref.reference;
-                docRef.update({
-                  'id': idController.text,
+                data.reference.update({
                   'name':
                       '${firstNameController.text} ${lastNameController.text}',
                   'email': emailController.text,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manager/screens/fleet_management.dart';
 import 'package:manager/screens/inventory_management.dart';
 
 import 'hr_management.dart';
@@ -52,11 +53,12 @@ class Home extends StatelessWidget {
                               color: Colors.white,
                             ),
                             Container(
-                              margin: const EdgeInsets.only(top: 50),
-                              child: Image.asset(
-                                'assets/images/Frame.png',
-                              ),
-                            )
+                                margin: const EdgeInsets.only(top: 30),
+                                child: const Icon(
+                                  Icons.support_agent_outlined,
+                                  size: 70,
+                                  color: Colors.white,
+                                ))
                           ],
                         ),
                       ),
@@ -111,7 +113,14 @@ class Home extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Fleet(),
+                      ),
+                    );
+                  },
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.40,
                     height: 250,

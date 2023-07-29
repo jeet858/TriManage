@@ -12,15 +12,7 @@ class Inventory extends StatelessWidget {
       bottomNavigationBar: const BottomApp(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          ServiceTile(name: 'Stock Categories', onPressed: null),
-          ServiceTile(name: 'Manage Stocks', onPressed: null),
-          ServiceTile(name: 'Order Management', onPressed: null),
-          ServiceTile(name: 'Payment flow', onPressed: null),
-          ServiceTile(name: 'Supplier Database', onPressed: null),
-          ServiceTile(name: 'Customer Database', onPressed: null),
-          ServiceTile(name: 'Reviews', onPressed: null)
-        ],
+        children: const [],
       ),
     );
   }

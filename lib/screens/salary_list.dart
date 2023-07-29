@@ -1,15 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:manager/widgets/add_employee.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../widgets/employee_tile.dart';
+import 'package:flutter/material.dart';
+import 'package:manager/widgets/salary_tile.dart';
+import '../widgets/add_employee.dart';
 
-class EmployeeList extends StatefulWidget {
+class SalaryList extends StatefulWidget {
+  const SalaryList({Key? key}) : super(key: key);
+
   @override
-  State<EmployeeList> createState() => _EmployeeListState();
+  State<SalaryList> createState() => _SalaryListState();
 }
 
-class _EmployeeListState extends State<EmployeeList>
-    with WidgetsBindingObserver {
+class _SalaryListState extends State<SalaryList> with WidgetsBindingObserver {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   late Stream<QuerySnapshot> employeeStream;
 
@@ -37,17 +38,6 @@ class _EmployeeListState extends State<EmployeeList>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // body: SingleChildScrollView(
-      //   child: Column(
-      //     children: [
-      //       EmployeeTile(
-      //         name: 'Employee 1',
-      //         imageLink:
-      //             'https://cdn2.psychologytoday.com/assets/styles/manual_crop_1_91_1_1528x800/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=7lrLYx-B',
-      //       )
-      //     ],
-      //   ),
-      // ),
       body: Column(children: [
         Container(
           height: 200,
@@ -69,13 +59,13 @@ class _EmployeeListState extends State<EmployeeList>
                   border: Border.all(color: Colors.white, width: 2),
                 ),
                 child: const Icon(
-                  Icons.people_outline,
+                  Icons.currency_rupee_outlined,
                   size: 40,
                   color: Colors.white,
                 ),
               ),
               const Text(
-                'Employees',
+                'Salaries',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 28,
@@ -105,10 +95,7 @@ class _EmployeeListState extends State<EmployeeList>
                     shrinkWrap: true,
                     children:
                         snapshot.data!.docs.map((DocumentSnapshot document) {
-                      return EmployeeTile(
-                        // name: document['name'],
-                        // mageLink: document['image'],
-                        // id: document['id'],
+                      return SalaryTile(
                         data: document,
                       );
                     }).toList(),

@@ -1,41 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:manager/screens/employee.dart';
-import 'package:manager/widgets/edit_employee.dart';
+import 'package:manager/widgets/edit_salary.dart';
 
-class EmployeeTile extends StatelessWidget {
-  // final String name;
-  //
-  // final String imageLink;
-  //
-  // final String id;
+import '../screens/employee.dart';
 
+class SalaryTile extends StatelessWidget {
   final DocumentSnapshot data;
-  const EmployeeTile({
-    Key? key,
-    // required this.id,
-    // required this.name,
-    // required this.imageLink,
-    required this.data,
-  }) : super(key: key);
 
-  void deleteEmployee() async {
-    DocumentReference documentReference = data.reference;
-    documentReference.delete();
-  }
-
+  const SalaryTile({Key? key, required this.data}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Employee(
-              data: data,
-            ),
-          ),
-        );
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return EditSalary(data: data);
+            });
       },
       child: Container(
         decoration: BoxDecoration(
@@ -80,32 +61,15 @@ class EmployeeTile extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      deleteEmployee();
-                    },
-                    icon: const Icon(
-                      Icons.delete,
-                      color: Colors.red,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return EditEmployee(data: data);
-                          });
-                    },
-                    icon: const Icon(
-                      Icons.edit,
-                      color: Colors.blueAccent,
-                    ),
-                  ),
-                ],
+            Container(
+              margin: const EdgeInsets.only(right: 15),
+              child: Text(
+                '₹${data['salary']}',
+                style: const TextStyle(
+                  color: Color.fromRGBO(58, 18, 45, 1),
+                  fontSize: 24,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             )
           ],

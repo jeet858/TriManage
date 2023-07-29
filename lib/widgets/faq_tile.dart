@@ -13,20 +13,21 @@ class FAQTile extends StatelessWidget {
       onPressed: onPressed,
       child: Container(
         alignment: Alignment.centerLeft,
-        margin: const EdgeInsets.symmetric(vertical: 10),
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
         decoration: const BoxDecoration(
-          color: Color(0xFFf6f6f6),
+          color: Colors.white,
           border: Border(
-            bottom: BorderSide(
-              color: Colors.black,
-              style: BorderStyle.solid,
-            ),
-            top: BorderSide(
-              color: Colors.black,
-              style: BorderStyle.solid,
-            ),
+            top: BorderSide(color: Color.fromRGBO(248, 156, 46, 1), width: 2),
+            bottom:
+                BorderSide(color: Color.fromRGBO(248, 156, 46, 1), width: 1),
           ),
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 3,
+              spreadRadius: 1,
+              color: Color.fromRGBO(194, 194, 194, 100),
+            ),
+          ],
         ),
         child: Text(
           name,

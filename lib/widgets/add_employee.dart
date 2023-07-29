@@ -86,10 +86,13 @@ class AddEmployee extends StatelessWidget {
                   ),
                 ],
               ),
-              ElevatedButton(
+              MaterialButton(
+                color: const Color.fromRGBO(248, 156, 46, 1),
                 onPressed: () {
-                  _fireStore.collection('employees').add({
-                    'id': idController.text,
+                  _fireStore
+                      .collection('employees')
+                      .doc(idController.text)
+                      .set({
                     'name':
                         '${firstNameController.text} ${lastNameController.text}',
                     'email': emailController.text,
@@ -103,7 +106,10 @@ class AddEmployee extends StatelessWidget {
                   });
                   Navigator.pop(context);
                 },
-                child: const Text('Submit'),
+                child: const Text(
+                  'Submit',
+                  style: TextStyle(color: Colors.white),
+                ),
               )
             ],
           ),

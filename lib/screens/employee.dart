@@ -34,7 +34,7 @@ class Employee extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Employee Id: ${data['id']}',
+                          'Employee Id: ${data.id}',
                           style: kTextStyle.copyWith(
                               color: Colors.black38,
                               decoration: TextDecoration.none,
