@@ -18,6 +18,10 @@ class EditEmployee extends StatelessWidget {
 
   final pinController = TextEditingController();
 
+  final positionController = TextEditingController();
+
+  final reviewController = TextEditingController();
+
   final _fireStore = FirebaseFirestore.instance;
 
   @override
@@ -28,9 +32,11 @@ class EditEmployee extends StatelessWidget {
     addressController.text = data['address'];
     phoneController.text = data['phone'];
     pinController.text = data['pincode'];
+    reviewController.text = data['review'];
+    positionController.text = data['position'];
     return AlertDialog(
       content: Container(
-        height: 400,
+        height: 500,
         color: Colors.white,
         child: Column(
           children: [
@@ -51,6 +57,14 @@ class EditEmployee extends StatelessWidget {
             TextField(
               controller: addressController,
               decoration: const InputDecoration(hintText: 'Address'),
+            ),
+            TextField(
+              controller: positionController,
+              decoration: const InputDecoration(hintText: 'Position'),
+            ),
+            TextField(
+              controller: reviewController,
+              decoration: const InputDecoration(hintText: 'Review'),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -86,6 +100,8 @@ class EditEmployee extends StatelessWidget {
                       '${firstNameController.text} ${lastNameController.text}',
                   'email': emailController.text,
                   'address': addressController.text,
+                  'position': positionController.text,
+                  'review': reviewController.text,
                   'pincode': pinController.text,
                   'phone': phoneController.text,
                   'image':

@@ -108,16 +108,8 @@ class _FAQState extends State<FAQ> with WidgetsBindingObserver {
                       children:
                           snapshot.data!.docs.map((DocumentSnapshot document) {
                         return FAQTile(
-                            name: document['question'],
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      Text(document['answer']),
-                                ),
-                              );
-                            });
+                          document: document,
+                        );
                       }).toList(),
                     );
                 }

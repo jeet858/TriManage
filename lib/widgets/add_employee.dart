@@ -22,6 +22,8 @@ class AddEmployee extends StatelessWidget {
 
   final reviewController = TextEditingController();
 
+  final salaryController = TextEditingController();
+
   final _fireStore = FirebaseFirestore.instance;
 
   @override
@@ -29,7 +31,7 @@ class AddEmployee extends StatelessWidget {
     return AlertDialog(
       content: SingleChildScrollView(
         child: Container(
-          height: 500,
+          height: 515,
           color: Colors.white,
           child: Column(
             children: [
@@ -58,6 +60,10 @@ class AddEmployee extends StatelessWidget {
               TextField(
                 controller: positionController,
                 decoration: const InputDecoration(hintText: 'Position'),
+              ),
+              TextField(
+                controller: salaryController,
+                decoration: const InputDecoration(hintText: 'Salary'),
               ),
               TextField(
                 controller: reviewController,
@@ -100,6 +106,7 @@ class AddEmployee extends StatelessWidget {
                     'pincode': pinController.text,
                     'phone': phoneController.text,
                     'position': positionController.text,
+                    'salary': salaryController.text,
                     'review': reviewController.text,
                     'image':
                         'https://www.tu-ilmenau.de/unionline/fileadmin/_processed_/0/0/csm_Person_Yury_Prof_Foto_AnLI_Footgrafie__2_.JPG_94f12fbf25.jpg'
